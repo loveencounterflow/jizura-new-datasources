@@ -1,0 +1,73 @@
+# role	jamo	Revised Romanization
+
+# Hangeul Transcriptions
+
+initial	ㄱ	g
+initial	ㄲ	kk
+initial	ㄴ	n
+initial	ㄷ	d
+initial	ㄸ	tt
+initial	ㄹ	r
+initial	ㅁ	m
+initial	ㅂ	b
+initial	ㅃ	pp
+initial	ㅅ	s
+initial	ㅆ	ss
+initial	ㅇ
+initial	ㅈ	j
+initial	ㅉ	jj
+initial	ㅊ	ch
+initial	ㅋ	k
+initial	ㅌ	t
+initial	ㅍ	p
+initial	ㅎ	h
+
+medial	ㅏ	a
+medial	ㅐ	ae
+medial	ㅑ	ya
+medial	ㅒ	yae
+medial	ㅓ	eo
+medial	ㅔ	e
+medial	ㅕ	yeo
+medial	ㅖ	ye
+medial	ㅗ	o
+medial	ㅘ	wa
+medial	ㅙ	wae
+medial	ㅚ	oe
+medial	ㅛ	yo
+medial	ㅜ	u
+medial	ㅝ	wo
+medial	ㅞ	we
+medial	ㅟ	wi
+medial	ㅠ	yu
+medial	ㅡ	eu
+medial	ㅢ	ui
+medial	ㅣ	i
+
+final	ㄱ	g
+final	ㄲ	kk
+final	ㄳ	gs
+final	ㄴ	n
+final	ㄵ	nj
+final	ㄶ	nh
+final	ㄷ	d
+final	ㄹ	l
+final	ㄺ	lg
+final	ㄻ	lm
+final	ㄼ	lb
+final	ㄽ	ls
+final	ㄾ	lt
+final	ㄿ	lp
+final	ㅀ	lh
+final	ㅁ	m
+final	ㅂ	b
+final	ㅄ	bs
+final	ㅅ	s
+final	ㅆ	ss
+final	ㅇ	ng
+final	ㅈ	j
+final	ㅊ	ch
+final	ㅋ	k
+final	ㅌ	t
+final	ㅍ	p
+final	ㅎ	h
