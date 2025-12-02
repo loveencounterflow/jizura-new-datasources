@@ -1,0 +1,48 @@
+
+# IETF BCP 47 — Tags for Identifying Languages
+# Also known as *RFC 5646* and *RFC 4647*
+
+# https://en.wikipedia.org/wiki/IETF_language_tag
+# https://tei-c.org/Vault/Workgroups/CE/cew09.html
+# https://www.w3.org/International/questions/qa-choosing-language-tags
+
+# BCP 47 language tags have this general structure:
+# language[-script][-region][-variants…]
+# Scripts use **ISO 15924** codes
+
+Latn	Latin
+Cyrl	Cyrillic
+Hani	Han (generic)
+Hans	Simplified
+Hant	Traditional
+
+# **Language codes** match /^[a-z]{2,3}$/ (two letters)
+# *official* **Script codes** match /^[A-Z][a-z]{3}$/ (four letters)
+# *private-use* **Script codes** match /^X[A-Z][a-z]{2}$/ (four letters)
+# **Region codes** match /^[A-Z]{2}$/ (two letters)
+
+# Note: we do not use the official `Kana` and `Hira`, mainly because the label
+# 'Kana' is such an infelicit choice (it looks to mean 'Kana' when it actually
+# means 'Katakana').
+# Hira	Hiragana
+# Kana	Katakana
+
+x-Hir	Hiragana
+x-Kat	Katakana
+x-Kan	Hiragana and Katakana, mixed (no Kanji, Romaji)
+
+
+
+zh-Hans	Chinese written in Simplified characters
+zh-Hant	Chinese written in Traditional characters
+zh-Hant-TW	Traditional Chinese, Taiwan
+zh-Hant-HK	Mandarin, Traditional Chinese, Hong Kong
+zh-Latn-Pinyin	Mandarin, Latin script, Pinyin orthography
+ja-x-Hir	Japanese, Hiragana
+ja-x-Kat	Japanese, Katakana
+ja-x-Kan	Japanese, Kana
+ja-Jpan	Japanese, "Japanese orthography"
+ko-Hani	Korean, Hanja
+ko-Hang	Korean, Hangul
+nan-Hant-TW	Min Nan Chinese, traditional Han, as spoken in Taiwan
+yue-Hant-HK	Cantonese, traditional Han, as spoken in Hong Kong
