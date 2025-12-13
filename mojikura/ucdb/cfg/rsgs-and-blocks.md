@@ -1,0 +1,357 @@
+
+
+# IClabels, RSGs, and Blocks
+
+>
+> NOTE Might always want to exclude the below non-characters from processing (see
+> https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Special_code_points)
+>
+
+
+| range              | lo, hi                  | comment    |
+| ------:            | ------:                 | ----:      |
+| u+000000..u+000000 | [ 0x0000, 0x0000, ]     | zero byte  |
+| u+00d800..u+00dfff | [ 0xd800, 0xdfff, ]     | surrogates |
+| u+00fdd0..u+00fdef | [ 0xfdd0, 0xfdef, ]     |            |
+| u+00fffe..u+00ffff | [ 0xfffe, 0xffff, ]     |            |
+| u+01fffe..u+01ffff | [ 0x1fffe, 0x1ffff, ]   |            |
+| u+02fffe..u+02ffff | [ 0x2fffe, 0x2ffff, ]   |            |
+| u+03fffe..u+03ffff | [ 0x3fffe, 0x3ffff, ]   |            |
+| u+04fffe..u+04ffff | [ 0x4fffe, 0x4ffff, ]   |            |
+| u+05fffe..u+05ffff | [ 0x5fffe, 0x5ffff, ]   |            |
+| u+06fffe..u+06ffff | [ 0x6fffe, 0x6ffff, ]   |            |
+| u+07fffe..u+07ffff | [ 0x7fffe, 0x7ffff, ]   |            |
+| u+08fffe..u+08ffff | [ 0x8fffe, 0x8ffff, ]   |            |
+| u+09fffe..u+09ffff | [ 0x9fffe, 0x9ffff, ]   |            |
+| u+0afffe..u+0affff | [ 0xafffe, 0xaffff, ]   |            |
+| u+0bfffe..u+0bffff | [ 0xbfffe, 0xbffff, ]   |            |
+| u+0cfffe..u+0cffff | [ 0xcfffe, 0xcffff, ]   |            |
+| u+0dfffe..u+0dffff | [ 0xdfffe, 0xdffff, ]   |            |
+| u+0efffe..u+0effff | [ 0xefffe, 0xeffff, ]   |            |
+| u+0ffffe..u+0fffff | [ 0xffffe, 0xfffff, ]   |            |
+| u+10fffe..u+10ffff | [ 0x10fffe, 0x10ffff, ] |            |
+
+
+## Sec. I Chinese Characters proper
+
+
+
+
+| IC Group | Range Sigil (RSG) | Kanji |    CID-Range     |            Unicode Block Name           |
+|----------|-------------------|-------|------------------|-----------------------------------------|
+| jzr---   | jzr               | true  | 0x0e000..0x0f8ff | Jizura                                  |
+| ux0e00   | u-pua             | true  | 0x0e000..0x0f8ff | Private Use Area                        |
+| uc0---   | u-cjk             | true  | 0x04e00..0x09fff | CJK Unified Ideographs                  |
+| uccmp-   | u-cjk-cmp         | true  | 0x03300..0x033ff | CJK Compatibility                       |
+| uccmp1   | u-cjk-cmpi1       | true  | 0x0f900..0x0faff | CJK Compatibility Ideographs            |
+| uccmp2   | u-cjk-cmpi2       | true  | 0x2f800..0x2fa1f | CJK Compatibility Ideographs Supplement |
+| uccmpf   | u-cjk-cmpf        | true  | 0x0fe30..0x0fe4f | CJK Compatibility Forms                 |
+| ucelet   | u-cjk-enclett     | true  | 0x03200..0x032ff | Enclosed CJK Letters and Months         |
+| ucesup   | u-cjk-encsupp     | true  | 0x1f200..0x1f2ff | Enclosed Ideographic Supplement         |
+| uchalf   | u-halfull         | true  | 0x0ff00..0x0ffef | Halfwidth and Fullwidth Forms           |
+| uckanb   | u-cjk-kanbun      | true  | 0x03190..0x0319f | Kanbun                                  |
+| ucrad1   | u-cjk-rad1        | true  | 0x02f00..0x02fdf | Kangxi Radicals                         |
+| ucrad2   | u-cjk-rad2        | true  | 0x02e80..0x02eff | CJK Radicals Supplement                 |
+| ucsfv-   | u-small           | true  | 0x0fe50..0x0fe6f | Small Form Variants                     |
+| ucstrk   | u-cjk-strk        | true  | 0x031c0..0x031ef | CJK Strokes                             |
+| ucsym-   | u-cjk-sym         | true  | 0x03000..0x0303f | CJK Symbols and Punctuation             |
+| ucvert   | u-vertf           | true  | 0x0fe10..0x0fe1f | Vertical Forms                          |
+| ucxa--   | u-cjk-xa          | true  | 0x03400..0x04dbf | CJK Unified Ideographs Extension A      |
+| ucxb--   | u-cjk-xb          | true  | 0x20000..0x2a6df | CJK Unified Ideographs Extension B      |
+| ucxc--   | u-cjk-xc          | true  | 0x2a700..0x2b73f | CJK Unified Ideographs Extension C      |
+| ucxd--   | u-cjk-xd          | true  | 0x2b740..0x2b81f | CJK Unified Ideographs Extension D      |
+| ucxe--   | u-cjk-xe          | true  | 0x2b820..0x2ceaf | CJK Unified Ideographs Extension E      |
+| ucxf--   | u-cjk-xf          | true  | 0x2ceb0..0x2ebef | CJK Unified Ideographs Extension F      |
+
+## Other Related Scripts
+
+| IC Group  | Range Sigil (RSG) | Kanji | CID-Range         | Unicode Block Name                               |
+| :-------- | :--------------   | :---- | :---------------- | :----------------------------------------------- |
+| ux1b17    | u-x-1b17          | false | 0x1b170..0x1b2ff  | Nushu                                            |
+
+## Bopomofo
+
+| IC Group  | Range Sigil (RSG) | Kanji | CID-Range         | Unicode Block Name                               |
+| :-------- | :--------------   | :---- | :---------------- | :----------------------------------------------- |
+| ucbpmf    | u-bopo            | false | 0x03100..0x0312f  | Bopomofo                                         |
+| ucbpmx    | u-bopo-x          | false | 0x031a0..0x031bf  | Bopomofo Extended                                |
+
+## Japanese Kana
+
+| IC Group  | Range Sigil (RSG) | Kanji | CID-Range         | Unicode Block Name                               |
+| :-------- | :--------------   | :---- | :---------------- | :----------------------------------------------- |
+| uchira    | u-cjk-hira        | false | 0x03040..0x0309f  | Hiragana                                         |
+| uckans    | u-cjk-kanasupp    | false | 0x1b000..0x1b0ff  | Kana Supplement                                  |
+| uckata    | u-cjk-kata        | false | 0x030a0..0x030ff  | Katakana                                         |
+| uckatx    | u-cjk-kata-x      | false | 0x031f0..0x031ff  | Katakana Phonetic Extensions                     |
+| uckaxa    | u-cjk-kana-xa     | false | 0x1b100..0x1b12f  | Kana Extended-A                                  |
+
+## Yijing and Similar
+
+| IC Group  | Range Sigil (RSG) | Kanji | CID-Range         | Unicode Block Name                               |
+| :-------- | :--------------   | :---- | :---------------- | :----------------------------------------------- |
+| uctxj-    | u-txj-sym         | false | 0x1d300..0x1d35f  | Tai Xuan Jing Symbols                            |
+| ucyijg    | u-yijng           | false | 0x04dc0..0x04dff  | Yijing Hexagram Symbols                          |
+
+## Korean Hangeul
+
+| IC Group  | Range Sigil (RSG) | Kanji | CID-Range         | Unicode Block Name                               |
+| :-------- | :--------------   | :---- | :---------------- | :----------------------------------------------- |
+| uchgcj    | u-hang-comp-jm    | false | 0x03130..0x0318f  | Hangul Compatibility Jamo                        |
+| uchgja    | u-hang-jm-xa      | false | 0x0a960..0x0a97f  | Hangul Jamo Extended-A                           |
+| uchgjb    | u-hang-jm-xb      | false | 0x0d7b0..0x0d7ff  | Hangul Jamo Extended-B                           |
+| uchgjm    | u-hang-jm         | false | 0x01100..0x011ff  | Hangul Jamo                                      |
+| uchgsy    | u-hang-syl        | false | 0x0ac00..0x0d7af  | Hangul Syllables                                 |
+
+
+| IC Group  | Range Sigil (RSG) | Kanji | CID-Range         | Unicode Block Name                               |
+| :-------- | :--------------   | :---- | :---------------- | :----------------------------------------------- |
+| ux1700    | u-x-1700          | false | 0x17000..0x187ff  | Tangut                                           |
+| ux1880    | u-x-1880          | false | 0x18800..0x18aff  | Tangut Components                                |
+| ux00f0    | u-x-00f0          | false | 0x00f00..0x00fff  | Tibetan                                          |
+| ux0a49    | u-x-0a49          | false | 0x0a490..0x0a4cf  | Yi Radicals                                      |
+| ux0a00    | u-x-0a00          | false | 0x0a000..0x0a48f  | Yi Syllables                                     |
+| ux11a0    | u-x-11a0          | false | 0x11a00..0x11a4f  | Zanabazar Square                                 |
+| ux1f00    | u-x-1f00          | false | 0x1f000..0x1f02f  | Mahjong Tiles                                    |
+| ucidc-    | u-cjk-idc         | false | 0x02ff0..0x02fff  | Ideographic Description Characters               |
+
+
+## Other Languages & Scripts
+
+| IC Group  | Range Sigil (RSG) | Kanji | CID-Range          | Unicode Block Name                               |
+| :-------- | :--------------   | :---- | :----------------  | :----------------------------------------------- |
+| ux1e90    | u-x-1e90          | false | 0x1e900..0x1e95f   | Adlam                                            |
+| ux1010    | u-x-1010          | false | 0x10100..0x1013f   | Aegean Numbers                                   |
+| ux1170    | u-x-1170          | false | 0x11700..0x1173f   | Ahom                                             |
+| ux1f70    | u-x-1f70          | false | 0x1f700..0x1f77f   | Alchemical Symbols                               |
+| ux0fb0    | u-abc-pf          | false | 0x0fb00..0x0fb4f   | Alphabetic Presentation Forms                    |
+| ux1440    | u-x-1440          | false | 0x14400..0x1467f   | Anatolian Hieroglyphs                            |
+| ux1d20    | u-x-1d20          | false | 0x1d200..0x1d24f   | Ancient Greek Musical Notation                   |
+| ux1014    | u-x-1014          | false | 0x10140..0x1018f   | Ancient Greek Numbers                            |
+| ux1019    | u-x-1019          | false | 0x10190..0x101cf   | Ancient Symbols                                  |
+| ux0060    | u-arab            | false | 0x00600..0x006ff   | Arabic                                           |
+| ux008a    | u-x-008a          | false | 0x008a0..0x008ff   | Arabic Extended-A                                |
+| ux1ee0    | u-x-1ee0          | false | 0x1ee00..0x1eeff   | Arabic Mathematical Alphabetic Symbols           |
+| ux0fb5    | u-arab-pf-a       | false | 0x0fb50..0x0fdff   | Arabic Presentation Forms-A                      |
+| ux0fe7    | u-arab-pf-b       | false | 0x0fe70..0x0feff   | Arabic Presentation Forms-B                      |
+| ux0075    | u-arab-s          | false | 0x00750..0x0077f   | Arabic Supplement                                |
+| ux0053    | u-x-0053          | false | 0x00530..0x0058f   | Armenian                                         |
+| ux0219    | u-arrow           | false | 0x02190..0x021ff   | Arrows                                           |
+| ux10b0    | u-x-10b0          | false | 0x10b00..0x10b3f   | Avestan                                          |
+| ux01b0    | u-x-01b0          | false | 0x01b00..0x01b7f   | Balinese                                         |
+| ux0a6a    | u-x-0a6a          | false | 0x0a6a0..0x0a6ff   | Bamum                                            |
+| ux1680    | u-x-1680          | false | 0x16800..0x16a3f   | Bamum Supplement                                 |
+| ux0000    | u-latn            | false | 0x00000..0x0007f   | Basic Latin                                      |
+| ux16ad    | u-x-16ad          | false | 0x16ad0..0x16aff   | Bassa Vah                                        |
+| ux01bc    | u-x-01bc          | false | 0x01bc0..0x01bff   | Batak                                            |
+| ux0098    | u-x-0098          | false | 0x00980..0x009ff   | Bengali                                          |
+| ux11c0    | u-x-11c0          | false | 0x11c00..0x11c6f   | Bhaiksuki                                        |
+| ux0258    | u-block           | false | 0x02580..0x0259f   | Block Elements                                   |
+| ux0250    | u-boxdr           | false | 0x02500..0x0257f   | Box Drawing                                      |
+| ux1100    | u-x-1100          | false | 0x11000..0x1107f   | Brahmi                                           |
+| ux0280    | u-brail           | false | 0x02800..0x028ff   | Braille Patterns                                 |
+| ux01a0    | u-x-01a0          | false | 0x01a00..0x01a1f   | Buginese                                         |
+| ux0174    | u-x-0174          | false | 0x01740..0x0175f   | Buhid                                            |
+| ux1d00    | u-x-1d00          | false | 0x1d000..0x1d0ff   | Byzantine Musical Symbols                        |
+| ux102a    | u-x-102a          | false | 0x102a0..0x102df   | Carian                                           |
+| ux1053    | u-x-1053          | false | 0x10530..0x1056f   | Caucasian Albanian                               |
+| ux1110    | u-x-1110          | false | 0x11100..0x1114f   | Chakma                                           |
+| ux0aa0    | u-x-0aa0          | false | 0x0aa00..0x0aa5f   | Cham                                             |
+| ux013a    | u-x-013a          | false | 0x013a0..0x013ff   | Cherokee                                         |
+| ux0ab7    | u-x-0ab7          | false | 0x0ab70..0x0abbf   | Cherokee Supplement                              |
+| ucdm--    | u-cdm             | false | 0x00300..0x0036f   | Combining Diacritical Marks                      |
+| ux01ab    | u-x-01ab          | false | 0x01ab0..0x01aff   | Combining Diacritical Marks Extended             |
+| ucdms-    | u-cdm-s           | false | 0x01dc0..0x01dff   | Combining Diacritical Marks Supplement           |
+| ucdmsy    | u-cdm-sy          | false | 0x020d0..0x020ff   | Combining Diacritical Marks for Symbols          |
+| ux0fe2    | u-x-0fe2          | false | 0x0fe20..0x0fe2f   | Combining Half Marks                             |
+| ux0a83    | u-x-0a83          | false | 0x0a830..0x0a83f   | Common Indic Number Forms                        |
+| ux0240    | u-ctrlp           | false | 0x02400..0x0243f   | Control Pictures                                 |
+| ux02c8    | u-x-02c8          | false | 0x02c80..0x02cff   | Coptic                                           |
+| ux102e    | u-x-102e          | false | 0x102e0..0x102ff   | Coptic Epact Numbers                             |
+| ux1d36    | u-x-1d36          | false | 0x1d360..0x1d37f   | Counting Rod Numerals                            |
+| ux1200    | u-x-1200          | false | 0x12000..0x123ff   | Cuneiform                                        |
+| ux1240    | u-x-1240          | false | 0x12400..0x1247f   | Cuneiform Numbers and Punctuation                |
+| ux020a    | u-currn           | false | 0x020a0..0x020cf   | Currency Symbols                                 |
+| ux1080    | u-x-1080          | false | 0x10800..0x1083f   | Cypriot Syllabary                                |
+| ux0040    | u-cyrl            | false | 0x00400..0x004ff   | Cyrillic                                         |
+| ux02de    | u-cyrl-a          | false | 0x02de0..0x02dff   | Cyrillic Extended-A                              |
+| ux0a64    | u-cyrl-b          | false | 0x0a640..0x0a69f   | Cyrillic Extended-B                              |
+| ux01c8    | u-x-01c8          | false | 0x01c80..0x01c8f   | Cyrillic Extended-C                              |
+| ux0050    | u-cyrl-s          | false | 0x00500..0x0052f   | Cyrillic Supplement                              |
+| ux1040    | u-x-1040          | false | 0x10400..0x1044f   | Deseret                                          |
+| ux0090    | u-x-0090          | false | 0x00900..0x0097f   | Devanagari                                       |
+| ux0a8e    | u-x-0a8e          | false | 0x0a8e0..0x0a8ff   | Devanagari Extended                              |
+| ux0270    | u-dingb           | false | 0x02700..0x027bf   | Dingbats                                         |
+| ux1f03    | u-x-1f03          | false | 0x1f030..0x1f09f   | Domino Tiles                                     |
+| ux1bc0    | u-x-1bc0          | false | 0x1bc00..0x1bc9f   | Duployan                                         |
+| ux1248    | u-x-1248          | false | 0x12480..0x1254f   | Early Dynastic Cuneiform                         |
+| ux1300    | u-x-1300          | false | 0x13000..0x1342f   | Egyptian Hieroglyphs                             |
+| ux1050    | u-x-1050          | false | 0x10500..0x1052f   | Elbasan                                          |
+| ux1f60    | u-x-1f60          | false | 0x1f600..0x1f64f   | Emoticons                                        |
+| ux1f10    | u-x-1f10          | false | 0x1f100..0x1f1ff   | Enclosed Alphanumeric Supplement                 |
+| ux0246    | u-enalp           | false | 0x02460..0x024ff   | Enclosed Alphanumerics                           |
+| ux0120    | u-x-0120          | false | 0x01200..0x0137f   | Ethiopic                                         |
+| ux02d8    | u-x-02d8          | false | 0x02d80..0x02ddf   | Ethiopic Extended                                |
+| ux0ab0    | u-x-0ab0          | false | 0x0ab00..0x0ab2f   | Ethiopic Extended-A                              |
+| ux0138    | u-x-0138          | false | 0x01380..0x0139f   | Ethiopic Supplement                              |
+| ux0200    | u-punct           | false | 0x02000..0x0206f   | General Punctuation                              |
+| ux025a    | u-geoms           | false | 0x025a0..0x025ff   | Geometric Shapes                                 |
+| ux1f78    | u-x-1f78          | false | 0x1f780..0x1f7ff   | Geometric Shapes Extended                        |
+| ux010a    | u-x-010a          | false | 0x010a0..0x010ff   | Georgian                                         |
+| ux02d0    | u-x-02d0          | false | 0x02d00..0x02d2f   | Georgian Supplement                              |
+| ux02c0    | u-x-02c0          | false | 0x02c00..0x02c5f   | Glagolitic                                       |
+| ux1e00    | u-x-1e00          | false | 0x1e000..0x1e02f   | Glagolitic Supplement                            |
+| ux1033    | u-x-1033          | false | 0x10330..0x1034f   | Gothic                                           |
+| ux1130    | u-x-1130          | false | 0x11300..0x1137f   | Grantha                                          |
+| ux0037    | u-grek            | false | 0x00370..0x003ff   | Greek and Coptic                                 |
+| ux01f0    | u-grek-x          | false | 0x01f00..0x01fff   | Greek Extended                                   |
+| ux00a8    | u-x-00a8          | false | 0x00a80..0x00aff   | Gujarati                                         |
+| ux00a0    | u-x-00a0          | false | 0x00a00..0x00a7f   | Gurmukhi                                         |
+| ux0172    | u-x-0172          | false | 0x01720..0x0173f   | Hanunoo                                          |
+| ux108e    | u-x-108e          | false | 0x108e0..0x108ff   | Hatran                                           |
+| ux0059    | u-x-0059          | false | 0x00590..0x005ff   | Hebrew                                           |
+| ux0db8    | u-x-0db8          | false | 0x0db80..0x0dbff   | High Private Use Surrogates                      |
+| ux0d80    | u-x-0d80          | false | 0x0d800..0x0db7f   | High Surrogates                                  |
+| ux16fe    | u-x-16fe          | false | 0x16fe0..0x16fff   | Ideographic Symbols and Punctuation              |
+| ux1084    | u-x-1084          | false | 0x10840..0x1085f   | Imperial Aramaic                                 |
+| ux10b6    | u-x-10b6          | false | 0x10b60..0x10b7f   | Inscriptional Pahlavi                            |
+| ux10b4    | u-x-10b4          | false | 0x10b40..0x10b5f   | Inscriptional Parthian                           |
+| ux0025    | u-ipa-x           | false | 0x00250..0x002af   | IPA Extensions                                   |
+| ux0a98    | u-x-0a98          | false | 0x0a980..0x0a9df   | Javanese                                         |
+| ux1108    | u-x-1108          | false | 0x11080..0x110cf   | Kaithi                                           |
+| ux00c8    | u-x-00c8          | false | 0x00c80..0x00cff   | Kannada                                          |
+| ux0a90    | u-x-0a90          | false | 0x0a900..0x0a92f   | Kayah Li                                         |
+| ux10a0    | u-x-10a0          | false | 0x10a00..0x10a5f   | Kharoshthi                                       |
+| ux0178    | u-x-0178          | false | 0x01780..0x017ff   | Khmer                                            |
+| ux019e    | u-x-019e          | false | 0x019e0..0x019ff   | Khmer Symbols                                    |
+| ux1120    | u-x-1120          | false | 0x11200..0x1124f   | Khojki                                           |
+| ux112b    | u-x-112b          | false | 0x112b0..0x112ff   | Khudawadi                                        |
+| ux00e8    | u-x-00e8          | false | 0x00e80..0x00eff   | Lao                                              |
+| ux01e0    | u-latn-xa         | false | 0x01e00..0x01eff   | Latin Extended Additional                        |
+| ux0010    | u-latn-a          | false | 0x00100..0x0017f   | Latin Extended-A                                 |
+| ux0018    | u-latn-b          | false | 0x00180..0x0024f   | Latin Extended-B                                 |
+| ux02c6    | u-latn-c          | false | 0x02c60..0x02c7f   | Latin Extended-C                                 |
+| ux0a72    | u-latn-d          | false | 0x0a720..0x0a7ff   | Latin Extended-D                                 |
+| ux0ab3    | u-x-0ab3          | false | 0x0ab30..0x0ab6f   | Latin Extended-E                                 |
+| ux0008    | u-latn-1          | false | 0x00080..0x000ff   | Latin-1 Supplement                               |
+| ux01c0    | u-x-01c0          | false | 0x01c00..0x01c4f   | Lepcha                                           |
+| ux0210    | u-llsym           | false | 0x02100..0x0214f   | Letterlike Symbols                               |
+| ux0190    | u-x-0190          | false | 0x01900..0x0194f   | Limbu                                            |
+| ux1060    | u-x-1060          | false | 0x10600..0x1077f   | Linear A                                         |
+| ux1008    | u-x-1008          | false | 0x10080..0x100ff   | Linear B Ideograms                               |
+| ux1000    | u-x-1000          | false | 0x10000..0x1007f   | Linear B Syllabary                               |
+| ux0a4d    | u-x-0a4d          | false | 0x0a4d0..0x0a4ff   | Lisu                                             |
+| ux0dc0    | u-x-0dc0          | false | 0x0dc00..0x0dfff   | Low Surrogates                                   |
+| ux1028    | u-x-1028          | false | 0x10280..0x1029f   | Lycian                                           |
+| ux1092    | u-x-1092          | false | 0x10920..0x1093f   | Lydian                                           |
+| ux1115    | u-x-1115          | false | 0x11150..0x1117f   | Mahajani                                         |
+| ux00d0    | u-x-00d0          | false | 0x00d00..0x00d7f   | Malayalam                                        |
+| ux0084    | u-x-0084          | false | 0x00840..0x0085f   | Mandaic                                          |
+| ux10ac    | u-x-10ac          | false | 0x10ac0..0x10aff   | Manichaean                                       |
+| ux11c7    | u-x-11c7          | false | 0x11c70..0x11cbf   | Marchen                                          |
+| ux11d0    | u-x-11d0          | false | 0x11d00..0x11d5f   | Masaram Gondi                                    |
+| ux1d40    | u-x-1d40          | false | 0x1d400..0x1d7ff   | Mathematical Alphanumeric Symbols                |
+| ux0220    | u-x-0220          | false | 0x02200..0x022ff   | Mathematical Operators                           |
+| ux0abc    | u-x-0abc          | false | 0x0abc0..0x0abff   | Meetei Mayek                                     |
+| ux0aae    | u-x-0aae          | false | 0x0aae0..0x0aaff   | Meetei Mayek Extensions                          |
+| ux1e80    | u-x-1e80          | false | 0x1e800..0x1e8df   | Mende Kikakui                                    |
+| ux109a    | u-x-109a          | false | 0x109a0..0x109ff   | Meroitic Cursive                                 |
+| ux1098    | u-x-1098          | false | 0x10980..0x1099f   | Meroitic Hieroglyphs                             |
+| ux16f0    | u-x-16f0          | false | 0x16f00..0x16f9f   | Miao                                             |
+| ux027c    | u-maths-a         | false | 0x027c0..0x027ef   | Miscellaneous Mathematical Symbols-A             |
+| ux0298    | u-x-0298          | false | 0x02980..0x029ff   | Miscellaneous Mathematical Symbols-B             |
+| ux0260    | u-sym             | false | 0x02600..0x026ff   | Miscellaneous Symbols                            |
+| ux02b0    | u-x-02b0          | false | 0x02b00..0x02bff   | Miscellaneous Symbols and Arrows                 |
+| ux1f30    | u-x-1f30          | false | 0x1f300..0x1f5ff   | Miscellaneous Symbols and Pictographs            |
+| ux0230    | u-x-0230          | false | 0x02300..0x023ff   | Miscellaneous Technical                          |
+| ux1160    | u-x-1160          | false | 0x11600..0x1165f   | Modi                                             |
+| ux0a70    | u-x-0a70          | false | 0x0a700..0x0a71f   | Modifier Tone Letters                            |
+| ux0180    | u-x-0180          | false | 0x01800..0x018af   | Mongolian                                        |
+| ux1166    | u-x-1166          | false | 0x11660..0x1167f   | Mongolian Supplement                             |
+| ux16a4    | u-x-16a4          | false | 0x16a40..0x16a6f   | Mro                                              |
+| ux1128    | u-x-1128          | false | 0x11280..0x112af   | Multani                                          |
+| ux1d10    | u-x-1d10          | false | 0x1d100..0x1d1ff   | Musical Symbols                                  |
+| ux0100    | u-x-0100          | false | 0x01000..0x0109f   | Myanmar                                          |
+| ux0aa6    | u-x-0aa6          | false | 0x0aa60..0x0aa7f   | Myanmar Extended-A                               |
+| ux0a9e    | u-x-0a9e          | false | 0x0a9e0..0x0a9ff   | Myanmar Extended-B                               |
+| ux1088    | u-x-1088          | false | 0x10880..0x108af   | Nabataean                                        |
+| ux0198    | u-x-0198          | false | 0x01980..0x019df   | New Tai Lue                                      |
+| ux1140    | u-x-1140          | false | 0x11400..0x1147f   | Newa                                             |
+| ux007c    | u-x-007c          | false | 0x007c0..0x007ff   | NKo                                              |
+| ux0215    | u-num             | false | 0x02150..0x0218f   | Number Forms                                     |
+| ux0168    | u-x-0168          | false | 0x01680..0x0169f   | Ogham                                            |
+| ux01c5    | u-olck            | false | 0x01c50..0x01c7f   | Ol Chiki                                         |
+| ux10c8    | u-x-10c8          | false | 0x10c80..0x10cff   | Old Hungarian                                    |
+| ux1030    | u-x-1030          | false | 0x10300..0x1032f   | Old Italic                                       |
+| ux10a8    | u-x-10a8          | false | 0x10a80..0x10a9f   | Old North Arabian                                |
+| ux1035    | u-x-1035          | false | 0x10350..0x1037f   | Old Permic                                       |
+| ux103a    | u-x-103a          | false | 0x103a0..0x103df   | Old Persian                                      |
+| ux10a6    | u-x-10a6          | false | 0x10a60..0x10a7f   | Old South Arabian                                |
+| ux10c0    | u-x-10c0          | false | 0x10c00..0x10c4f   | Old Turkic                                       |
+| ux0244    | u-ocr             | false | 0x02440..0x0245f   | Optical Character Recognition                    |
+| ux00b0    | u-x-00b0          | false | 0x00b00..0x00b7f   | Oriya                                            |
+| ux1f65    | u-x-1f65          | false | 0x1f650..0x1f67f   | Ornamental Dingbats                              |
+| ux104b    | u-x-104b          | false | 0x104b0..0x104ff   | Osage                                            |
+| ux1048    | u-x-1048          | false | 0x10480..0x104af   | Osmanya                                          |
+| ux16b0    | u-x-16b0          | false | 0x16b00..0x16b8f   | Pahawh Hmong                                     |
+| ux1086    | u-x-1086          | false | 0x10860..0x1087f   | Palmyrene                                        |
+| ux11ac    | u-x-11ac          | false | 0x11ac0..0x11aff   | Pau Cin Hau                                      |
+| ux0a84    | u-x-0a84          | false | 0x0a840..0x0a87f   | Phags-pa                                         |
+| ux101d    | u-x-101d          | false | 0x101d0..0x101ff   | Phaistos Disc                                    |
+| ux1090    | u-x-1090          | false | 0x10900..0x1091f   | Phoenician                                       |
+| ux01d0    | u-phon-x          | false | 0x01d00..0x01d7f   | Phonetic Extensions                              |
+| ux01d8    | u-phon-xs         | false | 0x01d80..0x01dbf   | Phonetic Extensions Supplement                   |
+| ux1f0a    | u-x-1f0a          | false | 0x1f0a0..0x1f0ff   | Playing Cards                                    |
+| ux10b8    | u-x-10b8          | false | 0x10b80..0x10baf   | Psalter Pahlavi                                  |
+| ux0a93    | u-x-0a93          | false | 0x0a930..0x0a95f   | Rejang                                           |
+| ux10e6    | u-x-10e6          | false | 0x10e60..0x10e7f   | Rumi Numeral Symbols                             |
+| ux016a    | u-x-016a          | false | 0x016a0..0x016ff   | Runic                                            |
+| ux0080    | u-x-0080          | false | 0x00800..0x0083f   | Samaritan                                        |
+| ux0a88    | u-x-0a88          | false | 0x0a880..0x0a8df   | Saurashtra                                       |
+| ux1118    | u-x-1118          | false | 0x11180..0x111df   | Sharada                                          |
+| ux1045    | u-x-1045          | false | 0x10450..0x1047f   | Shavian                                          |
+| ux1bca    | u-x-1bca          | false | 0x1bca0..0x1bcaf   | Shorthand Format Controls                        |
+| ux1158    | u-x-1158          | false | 0x11580..0x115ff   | Siddham                                          |
+| ux00d8    | u-x-00d8          | false | 0x00d80..0x00dff   | Sinhala                                          |
+| ux111e    | u-x-111e          | false | 0x111e0..0x111ff   | Sinhala Archaic Numbers                          |
+| ux110d    | u-x-110d          | false | 0x110d0..0x110ff   | Sora Sompeng                                     |
+| ux11a5    | u-x-11a5          | false | 0x11a50..0x11aaf   | Soyombo                                          |
+| ux002b    | u-sml             | false | 0x002b0..0x002ff   | Spacing Modifier Letters                         |
+| ux0fff    | u-special         | false | 0x0fff0..0x0ffff   | Specials                                         |
+| ux01b8    | u-x-01b8          | false | 0x01b80..0x01bbf   | Sundanese                                        |
+| ux01cc    | u-x-01cc          | false | 0x01cc0..0x01ccf   | Sundanese Supplement                             |
+| ux0207    | u-supsub          | false | 0x02070..0x0209f   | Superscripts and Subscripts                      |
+| ux027f    | u-arrow-a         | false | 0x027f0..0x027ff   | Supplemental Arrows-A                            |
+| ux0290    | u-arrow-b         | false | 0x02900..0x0297f   | Supplemental Arrows-B                            |
+| ux1f80    | u-x-1f80          | false | 0x1f800..0x1f8ff   | Supplemental Arrows-C                            |
+| ux02a0    | u-x-02a0          | false | 0x02a00..0x02aff   | Supplemental Mathematical Operators              |
+| ux02e0    | u-punct-s         | false | 0x02e00..0x02e7f   | Supplemental Punctuation                         |
+| ux1f90    | u-x-1f90          | false | 0x1f900..0x1f9ff   | Supplemental Symbols and Pictographs             |
+| upuaxa    | u-pua-xa          | false | 0xf0000..0xfffff   | Supplementary Private Use Area-A                 |
+| upuaxb    | u-pua-xb          | false | 0x100000..0x10ffff | Supplementary Private Use Area-B                 |
+| ux1d80    | u-x-1d80          | false | 0x1d800..0x1daaf   | Sutton SignWriting                               |
+| ux0a80    | u-x-0a80          | false | 0x0a800..0x0a82f   | Syloti Nagri                                     |
+| ux0070    | u-x-0070          | false | 0x00700..0x0074f   | Syriac                                           |
+| ux0086    | u-x-0086          | false | 0x00860..0x0086f   | Syriac Supplement                                |
+| ux0170    | u-x-0170          | false | 0x01700..0x0171f   | Tagalog                                          |
+| ux0176    | u-x-0176          | false | 0x01760..0x0177f   | Tagbanwa                                         |
+| uxe000    | u-x-e000          | false | 0xe0000..0xe007f   | Tags                                             |
+| ux0195    | u-x-0195          | false | 0x01950..0x0197f   | Tai Le                                           |
+| ux01a2    | u-x-01a2          | false | 0x01a20..0x01aaf   | Tai Tham                                         |
+| ux0aa8    | u-x-0aa8          | false | 0x0aa80..0x0aadf   | Tai Viet                                         |
+| ux1168    | u-x-1168          | false | 0x11680..0x116cf   | Takri                                            |
+| ux00b8    | u-x-00b8          | false | 0x00b80..0x00bff   | Tamil                                            |
+| ux00c0    | u-x-00c0          | false | 0x00c00..0x00c7f   | Telugu                                           |
+| ux0078    | u-x-0078          | false | 0x00780..0x007bf   | Thaana                                           |
+| ux00e0    | u-x-00e0          | false | 0x00e00..0x00e7f   | Thai                                             |
+| ux02d3    | u-x-02d3          | false | 0x02d30..0x02d7f   | Tifinagh                                         |
+| ux1148    | u-x-1148          | false | 0x11480..0x114df   | Tirhuta                                          |
+| ux1f68    | u-x-1f68          | false | 0x1f680..0x1f6ff   | Transport and Map Symbols                        |
+| ux1038    | u-x-1038          | false | 0x10380..0x1039f   | Ugaritic                                         |
+| ux0140    | u-x-0140          | false | 0x01400..0x0167f   | Unified Canadian Aboriginal Syllabics            |
+| ux018b    | u-x-018b          | false | 0x018b0..0x018ff   | Unified Canadian Aboriginal Syllabics Extended   |
+| ux0a50    | u-x-0a50          | false | 0x0a500..0x0a63f   | Vai                                              |
+| ux0fe0    | u-varsl           | false | 0x0fe00..0x0fe0f   | Variation Selectors                              |
+| uxe010    | u-varsl-s         | false | 0xe0100..0xe01ef   | Variation Selectors Supplement                   |
+| ux01cd    | u-x-01cd          | false | 0x01cd0..0x01cff   | Vedic Extensions                                 |
+| ux118a    | u-x-118a          | false | 0x118a0..0x118ff   | Warang Citi                                      |
