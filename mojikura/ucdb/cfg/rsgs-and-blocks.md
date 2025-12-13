@@ -37,38 +37,38 @@
 
 
 
-| IC Group | Range Sigil (RSG) | Kanji |    CID-Range     |            Unicode Block Name           |
-|----------|-------------------|-------|------------------|-----------------------------------------|
-| jzr---   | jzr               | true  | 0x0e000..0x0f8ff | Jizura                                  |
-| ux0e00   | u-pua             | true  | 0x0e000..0x0f8ff | Private Use Area                        |
-| uc0---   | u-cjk             | true  | 0x04e00..0x09fff | CJK Unified Ideographs                  |
-| uccmp-   | u-cjk-cmp         | true  | 0x03300..0x033ff | CJK Compatibility                       |
-| uccmp1   | u-cjk-cmpi1       | true  | 0x0f900..0x0faff | CJK Compatibility Ideographs            |
-| uccmp2   | u-cjk-cmpi2       | true  | 0x2f800..0x2fa1f | CJK Compatibility Ideographs Supplement |
-| uccmpf   | u-cjk-cmpf        | true  | 0x0fe30..0x0fe4f | CJK Compatibility Forms                 |
-| ucelet   | u-cjk-enclett     | true  | 0x03200..0x032ff | Enclosed CJK Letters and Months         |
-| ucesup   | u-cjk-encsupp     | true  | 0x1f200..0x1f2ff | Enclosed Ideographic Supplement         |
-| uchalf   | u-halfull         | true  | 0x0ff00..0x0ffef | Halfwidth and Fullwidth Forms           |
-| uckanb   | u-cjk-kanbun      | true  | 0x03190..0x0319f | Kanbun                                  |
-| ucrad1   | u-cjk-rad1        | true  | 0x02f00..0x02fdf | Kangxi Radicals                         |
-| ucrad2   | u-cjk-rad2        | true  | 0x02e80..0x02eff | CJK Radicals Supplement                 |
-|----------|-------------------|-------|------------------|-----------------------------------------|
-| ucsfv-   | u-small           | true  | 0x0fe50..0x0fe6f | Small Form Variants                     |
-| ucstrk   | u-cjk-strk        | true  | 0x031c0..0x031ef | CJK Strokes                             |
-| ucsym-   | u-cjk-sym         | true  | 0x03000..0x0303f | CJK Symbols and Punctuation             |
-| ucvert   | u-vertf           | true  | 0x0fe10..0x0fe1f | Vertical Forms                          |
-| ucxa--   | u-cjk-xa          | true  | 0x03400..0x04dbf | CJK Unified Ideographs Extension A      |
-| ucxb--   | u-cjk-xb          | true  | 0x20000..0x2a6df | CJK Unified Ideographs Extension B      |
-| ucxc--   | u-cjk-xc          | true  | 0x2a700..0x2b73f | CJK Unified Ideographs Extension C      |
-| ucxd--   | u-cjk-xd          | true  | 0x2b740..0x2b81f | CJK Unified Ideographs Extension D      |
-| ucxe--   | u-cjk-xe          | true  | 0x2b820..0x2ceaf | CJK Unified Ideographs Extension E      |
-| ucxf--   | u-cjk-xf          | true  | 0x2ceb0..0x2ebef | CJK Unified Ideographs Extension F      |
+| **IC Group** | **Range Sigil (RSG** | **Kanji** |  **CID-Range**   |          **Unicode Block Name**         |
+|--------------|----------------------|-----------|------------------|-----------------------------------------|
+| jzr---       | jzr                  | true      | 0x0e000..0x0f8ff | Jizura                                  |
+| ux0e00       | u-pua                | true      | 0x0e000..0x0f8ff | Private Use Area                        |
+| uc0---       | u-cjk                | true      | 0x04e00..0x09fff | CJK Unified Ideographs                  |
+| uccmp-       | u-cjk-cmp            | true      | 0x03300..0x033ff | CJK Compatibility                       |
+| uccmp1       | u-cjk-cmpi1          | true      | 0x0f900..0x0faff | CJK Compatibility Ideographs            |
+| uccmp2       | u-cjk-cmpi2          | true      | 0x2f800..0x2fa1f | CJK Compatibility Ideographs Supplement |
+| uccmpf       | u-cjk-cmpf           | true      | 0x0fe30..0x0fe4f | CJK Compatibility Forms                 |
+| ucelet       | u-cjk-enclett        | true      | 0x03200..0x032ff | Enclosed CJK Letters and Months         |
+| ucesup       | u-cjk-encsupp        | true      | 0x1f200..0x1f2ff | Enclosed Ideographic Supplement         |
+| uchalf       | u-halfull            | true      | 0x0ff00..0x0ffef | Halfwidth and Fullwidth Forms           |
+| uckanb       | u-cjk-kanbun         | true      | 0x03190..0x0319f | Kanbun                                  |
+| ucrad1       | u-cjk-rad1           | true      | 0x02f00..0x02fdf | Kangxi Radicals                         |
+| ucrad2       | u-cjk-rad2           | true      | 0x02e80..0x02eff | CJK Radicals Supplement                 |
+|--------------|----------------------|-----------|------------------|-----------------------------------------|
+| ucsfv-       | u-small              | true      | 0x0fe50..0x0fe6f | Small Form Variants                     |
+| ucstrk       | u-cjk-strk           | true      | 0x031c0..0x031ef | CJK Strokes                             |
+| ucsym-       | u-cjk-sym            | true      | 0x03000..0x0303f | CJK Symbols and Punctuation             |
+| ucvert       | u-vertf              | true      | 0x0fe10..0x0fe1f | Vertical Forms                          |
+| ucxa--       | u-cjk-xa             | true      | 0x03400..0x04dbf | CJK Unified Ideographs Extension A      |
+| ucxb--       | u-cjk-xb             | true      | 0x20000..0x2a6df | CJK Unified Ideographs Extension B      |
+| ucxc--       | u-cjk-xc             | true      | 0x2a700..0x2b73f | CJK Unified Ideographs Extension C      |
+| ucxd--       | u-cjk-xd             | true      | 0x2b740..0x2b81f | CJK Unified Ideographs Extension D      |
+| ucxe--       | u-cjk-xe             | true      | 0x2b820..0x2ceaf | CJK Unified Ideographs Extension E      |
+| ucxf--       | u-cjk-xf             | true      | 0x2ceb0..0x2ebef | CJK Unified Ideographs Extension F      |
 
 ## Other Related Scripts
 
-| IC Group  | Range Sigil (RSG) | Kanji | CID-Range         | Unicode Block Name                               |
-| :-------- | :--------------   | :---- | :---------------- | :----------------------------------------------- |
-| ux1b17    | u-x-1b17          | false | 0x1b170..0x1b2ff  | Nushu                                            |
+| *IC Group* | *Range Sigil (RSG* | *Kanji* | *CID-Range*       | *Unicode Block Name*                             |
+| :--------  | :--------------    | :----   | :---------------- | :----------------------------------------------- |
+| ux1b17     | u-x-1b17           | false   | 0x1b170..0x1b2ff  | Nushu                                            |
 
 ## Bopomofo
 
