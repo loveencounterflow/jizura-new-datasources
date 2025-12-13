@@ -52,6 +52,7 @@
 | uckanb   | u-cjk-kanbun      | true  | 0x03190..0x0319f | Kanbun                                  |
 | ucrad1   | u-cjk-rad1        | true  | 0x02f00..0x02fdf | Kangxi Radicals                         |
 | ucrad2   | u-cjk-rad2        | true  | 0x02e80..0x02eff | CJK Radicals Supplement                 |
+|----------|-------------------|-------|------------------|-----------------------------------------|
 | ucsfv-   | u-small           | true  | 0x0fe50..0x0fe6f | Small Form Variants                     |
 | ucstrk   | u-cjk-strk        | true  | 0x031c0..0x031ef | CJK Strokes                             |
 | ucsym-   | u-cjk-sym         | true  | 0x03000..0x0303f | CJK Symbols and Punctuation             |
