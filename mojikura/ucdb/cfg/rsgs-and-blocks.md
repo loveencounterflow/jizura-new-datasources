@@ -6,35 +6,39 @@
 > NOTE Might always want to exclude the below non-characters from processing (see
 > https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Special_code_points)
 >
-
-
-|      *range*       |         *lo, hi*        | *comment*  |
-|--------------------|-------------------------|------------|
-| u+000000..u+000000 | [ 0x0000, 0x0000, ]     | zero byte  |
-| u+00d800..u+00dfff | [ 0xd800, 0xdfff, ]     | surrogates |
-| u+00fdd0..u+00fdef | [ 0xfdd0, 0xfdef, ]     |            |
-| u+00fffe..u+00ffff | [ 0xfffe, 0xffff, ]     |            |
-| u+01fffe..u+01ffff | [ 0x1fffe, 0x1ffff, ]   |            |
-| u+02fffe..u+02ffff | [ 0x2fffe, 0x2ffff, ]   |            |
-| u+03fffe..u+03ffff | [ 0x3fffe, 0x3ffff, ]   |            |
-| u+04fffe..u+04ffff | [ 0x4fffe, 0x4ffff, ]   |            |
-| u+05fffe..u+05ffff | [ 0x5fffe, 0x5ffff, ]   |            |
-| u+06fffe..u+06ffff | [ 0x6fffe, 0x6ffff, ]   |            |
-| u+07fffe..u+07ffff | [ 0x7fffe, 0x7ffff, ]   |            |
-| u+08fffe..u+08ffff | [ 0x8fffe, 0x8ffff, ]   |            |
-| u+09fffe..u+09ffff | [ 0x9fffe, 0x9ffff, ]   |            |
-| u+0afffe..u+0affff | [ 0xafffe, 0xaffff, ]   |            |
-| u+0bfffe..u+0bffff | [ 0xbfffe, 0xbffff, ]   |            |
-| u+0cfffe..u+0cffff | [ 0xcfffe, 0xcffff, ]   |            |
-| u+0dfffe..u+0dffff | [ 0xdfffe, 0xdffff, ]   |            |
-| u+0efffe..u+0effff | [ 0xefffe, 0xeffff, ]   |            |
-| u+0ffffe..u+0fffff | [ 0xffffe, 0xfffff, ]   |            |
-| u+10fffe..u+10ffff | [ 0x10fffe, 0x10ffff, ] |            |
+>
+>
+> |      *range*       |         *lo, hi*        | *comment*  |
+> |--------------------|-------------------------|------------|
+> | u+000000..u+000000 | [ 0x0000, 0x0000, ]     | zero byte  |
+> | u+00d800..u+00dfff | [ 0xd800, 0xdfff, ]     | surrogates |
+> | u+00fdd0..u+00fdef | [ 0xfdd0, 0xfdef, ]     |            |
+> | u+00fffe..u+00ffff | [ 0xfffe, 0xffff, ]     |            |
+> | u+01fffe..u+01ffff | [ 0x1fffe, 0x1ffff, ]   |            |
+> | u+02fffe..u+02ffff | [ 0x2fffe, 0x2ffff, ]   |            |
+> | u+03fffe..u+03ffff | [ 0x3fffe, 0x3ffff, ]   |            |
+> | u+04fffe..u+04ffff | [ 0x4fffe, 0x4ffff, ]   |            |
+> | u+05fffe..u+05ffff | [ 0x5fffe, 0x5ffff, ]   |            |
+> | u+06fffe..u+06ffff | [ 0x6fffe, 0x6ffff, ]   |            |
+> | u+07fffe..u+07ffff | [ 0x7fffe, 0x7ffff, ]   |            |
+> | u+08fffe..u+08ffff | [ 0x8fffe, 0x8ffff, ]   |            |
+> | u+09fffe..u+09ffff | [ 0x9fffe, 0x9ffff, ]   |            |
+> | u+0afffe..u+0affff | [ 0xafffe, 0xaffff, ]   |            |
+> | u+0bfffe..u+0bffff | [ 0xbfffe, 0xbffff, ]   |            |
+> | u+0cfffe..u+0cffff | [ 0xcfffe, 0xcffff, ]   |            |
+> | u+0dfffe..u+0dffff | [ 0xdfffe, 0xdffff, ]   |            |
+> | u+0efffe..u+0effff | [ 0xefffe, 0xeffff, ]   |            |
+> | u+0ffffe..u+0fffff | [ 0xffffe, 0xfffff, ]   |            |
+> | u+10fffe..u+10ffff | [ 0x10fffe, 0x10ffff, ] |            |
 
 
 ## Sec. I Chinese Characters proper
 
-
+> These are not representable code points:
+>
+> | `ux0db8`   | `u-x-0db8`          | `false` | `0x0db80..0x0dbff`   | High Private Use Surrogates                    |
+> | `ux0d80`   | `u-x-0d80`          | `false` | `0x0d800..0x0db7f`   | High Surrogates                                |
+> | `ux0dc0`   | `u-x-0dc0`          | `false` | `0x0dc00..0x0dfff`   | Low Surrogates                                 |
 
 
 | *IC Group* | *Range Sigil (RSG)* | *Kanji* |    *CID-Range*     |           *Unicode Block Name*          |
@@ -209,8 +213,6 @@
 | `ux0172`   | `u-x-0172`          | `false` | `0x01720..0x0173f`   | Hanunoo                                        |
 | `ux108e`   | `u-x-108e`          | `false` | `0x108e0..0x108ff`   | Hatran                                         |
 | `ux0059`   | `u-x-0059`          | `false` | `0x00590..0x005ff`   | Hebrew                                         |
-| `ux0db8`   | `u-x-0db8`          | `false` | `0x0db80..0x0dbff`   | High Private Use Surrogates                    |
-| `ux0d80`   | `u-x-0d80`          | `false` | `0x0d800..0x0db7f`   | High Surrogates                                |
 | `ux16fe`   | `u-x-16fe`          | `false` | `0x16fe0..0x16fff`   | Ideographic Symbols and Punctuation            |
 | `ux1084`   | `u-x-1084`          | `false` | `0x10840..0x1085f`   | Imperial Aramaic                               |
 | `ux10b6`   | `u-x-10b6`          | `false` | `0x10b60..0x10b7f`   | Inscriptional Pahlavi                          |
@@ -240,7 +242,6 @@
 | `ux1008`   | `u-x-1008`          | `false` | `0x10080..0x100ff`   | Linear B Ideograms                             |
 | `ux1000`   | `u-x-1000`          | `false` | `0x10000..0x1007f`   | Linear B Syllabary                             |
 | `ux0a4d`   | `u-x-0a4d`          | `false` | `0x0a4d0..0x0a4ff`   | Lisu                                           |
-| `ux0dc0`   | `u-x-0dc0`          | `false` | `0x0dc00..0x0dfff`   | Low Surrogates                                 |
 | `ux1028`   | `u-x-1028`          | `false` | `0x10280..0x1029f`   | Lycian                                         |
 | `ux1092`   | `u-x-1092`          | `false` | `0x10920..0x1093f`   | Lydian                                         |
 | `ux1115`   | `u-x-1115`          | `false` | `0x11150..0x1117f`   | Mahajani                                       |
