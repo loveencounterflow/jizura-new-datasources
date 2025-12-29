@@ -7,73 +7,75 @@
 > https://en.wikipedia.org/wiki/Universal_Character_Set_characters#Special_code_points)
 >
 >
->
-> |      *range*       |         *lo, hi*        | *comment*  |
-> |--------------------|-------------------------|------------|
-> | u+000000..u+000000 | [ 0x0000, 0x0000, ]     | zero byte  |
-> | u+00d800..u+00dfff | [ 0xd800, 0xdfff, ]     | surrogates |
-> | u+00fdd0..u+00fdef | [ 0xfdd0, 0xfdef, ]     |            |
-> | u+00fffe..u+00ffff | [ 0xfffe, 0xffff, ]     |            |
-> | u+01fffe..u+01ffff | [ 0x1fffe, 0x1ffff, ]   |            |
-> | u+02fffe..u+02ffff | [ 0x2fffe, 0x2ffff, ]   |            |
-> | u+03fffe..u+03ffff | [ 0x3fffe, 0x3ffff, ]   |            |
-> | u+04fffe..u+04ffff | [ 0x4fffe, 0x4ffff, ]   |            |
-> | u+05fffe..u+05ffff | [ 0x5fffe, 0x5ffff, ]   |            |
-> | u+06fffe..u+06ffff | [ 0x6fffe, 0x6ffff, ]   |            |
-> | u+07fffe..u+07ffff | [ 0x7fffe, 0x7ffff, ]   |            |
-> | u+08fffe..u+08ffff | [ 0x8fffe, 0x8ffff, ]   |            |
-> | u+09fffe..u+09ffff | [ 0x9fffe, 0x9ffff, ]   |            |
-> | u+0afffe..u+0affff | [ 0xafffe, 0xaffff, ]   |            |
-> | u+0bfffe..u+0bffff | [ 0xbfffe, 0xbffff, ]   |            |
-> | u+0cfffe..u+0cffff | [ 0xcfffe, 0xcffff, ]   |            |
-> | u+0dfffe..u+0dffff | [ 0xdfffe, 0xdffff, ]   |            |
-> | u+0efffe..u+0effff | [ 0xefffe, 0xeffff, ]   |            |
-> | u+0ffffe..u+0fffff | [ 0xffffe, 0xfffff, ]   |            |
-> | u+10fffe..u+10ffff | [ 0x10fffe, 0x10ffff, ] |            |
+
+| *dgroup* |      *range*       |         *lo, hi*        | *comment*  |
+|----------|--------------------|-------------------------|------------|
+| `-`      | u+000000..u+000000 | [ 0x0000, 0x0000, ]     | zero byte  |
+| `-`      | u+00d800..u+00dfff | [ 0xd800, 0xdfff, ]     | surrogates |
+| `-`      | u+00fdd0..u+00fdef | [ 0xfdd0, 0xfdef, ]     |            |
+| `-`      | u+00fffe..u+00ffff | [ 0xfffe, 0xffff, ]     |            |
+| `-`      | u+01fffe..u+01ffff | [ 0x1fffe, 0x1ffff, ]   |            |
+| `-`      | u+02fffe..u+02ffff | [ 0x2fffe, 0x2ffff, ]   |            |
+| `-`      | u+03fffe..u+03ffff | [ 0x3fffe, 0x3ffff, ]   |            |
+| `-`      | u+04fffe..u+04ffff | [ 0x4fffe, 0x4ffff, ]   |            |
+| `-`      | u+05fffe..u+05ffff | [ 0x5fffe, 0x5ffff, ]   |            |
+| `-`      | u+06fffe..u+06ffff | [ 0x6fffe, 0x6ffff, ]   |            |
+| `-`      | u+07fffe..u+07ffff | [ 0x7fffe, 0x7ffff, ]   |            |
+| `-`      | u+08fffe..u+08ffff | [ 0x8fffe, 0x8ffff, ]   |            |
+| `-`      | u+09fffe..u+09ffff | [ 0x9fffe, 0x9ffff, ]   |            |
+| `-`      | u+0afffe..u+0affff | [ 0xafffe, 0xaffff, ]   |            |
+| `-`      | u+0bfffe..u+0bffff | [ 0xbfffe, 0xbffff, ]   |            |
+| `-`      | u+0cfffe..u+0cffff | [ 0xcfffe, 0xcffff, ]   |            |
+| `-`      | u+0dfffe..u+0dffff | [ 0xdfffe, 0xdffff, ]   |            |
+| `-`      | u+0efffe..u+0effff | [ 0xefffe, 0xeffff, ]   |            |
+| `-`      | u+0ffffe..u+0fffff | [ 0xffffe, 0xfffff, ]   |            |
+| `-`      | u+10fffe..u+10ffff | [ 0x10fffe, 0x10ffff, ] |            |
 
 
-## Sec. I Chinese Characters proper
+These are not representable code points:
 
-> These are not representable code points:
->
-> | `ux0db8`   | `u-x-0db8`          | `false` | `0x0db80..0x0dbff`   | High Private Use Surrogates                    |
-> | `ux0d80`   | `u-x-0d80`          | `false` | `0x0d800..0x0db7f`   | High Surrogates                                |
-> | `ux0dc0`   | `u-x-0dc0`          | `false` | `0x0dc00..0x0dfff`   | Low Surrogates                                 |
+| *dgroup* | *IC Group* | *Range Sigil (RSG)* | *Kanji* |    *CID-Range*     | *UGC* |     *Unicode Block Name*    |
+|----------|------------|---------------------|---------|--------------------|-------|-----------------------------|
+| `-`      | `ux0db8`   | `u-x-0db8`          | `false` | `0x0db80..0x0dbff` |       | High Private Use Surrogates |
+| `-`      | `ux0d80`   | `u-x-0d80`          | `false` | `0x0d800..0x0db7f` |       | High Surrogates             |
+| `-`      | `ux0dc0`   | `u-x-0dc0`          | `false` | `0x0dc00..0x0dfff` |       | Low Surrogates              |
 
 > Using own name for PUA:
 >
 > | `ux0e00`   | `u-pua`             | `true`  | `0x0e000..0x0f8ff` | Private Use Area                        |
 
+## Sec. I Chinese Characters proper
 
-| *IC Group* | *Range Sigil (RSG)* | *Kanji* |    *CID-Range*     | *UGC* |           *Unicode Block Name*          |
-|------------|---------------------|---------|--------------------|-------|-----------------------------------------|
-| `mjk---`   | `mjk`               | `false` | `0x0e000..0x0e0ff` | `So`  | Mojikura                                |
-| `jzr---`   | `jzr`               | `true`  | `0x0e100..0x0e39f` | `Lo`  | Jizura                                  |
-| `uc0---`   | `u-cjk`             | `true`  | `0x04e00..0x09fff` | `Lo`  | CJK Ideographs                          |
-| `uccmp-`   | `u-cjk-cmp`         | `true`  | `0x03300..0x033ff` | `Lo`  | CJK Compatibility                       |
-| `uccmp1`   | `u-cjk-cmpi1`       | `true`  | `0x0f900..0x0faff` | `Lo`  | CJK Compatibility Ideographs            |
-| `uccmp2`   | `u-cjk-cmpi2`       | `true`  | `0x2f800..0x2fa1f` | `Lo`  | CJK Compatibility Ideographs Supplement |
-| `uccmpf`   | `u-cjk-cmpf`        | `true`  | `0x0fe30..0x0fe4f` | `*`   | CJK Compatibility Forms                 |
-| `ucelet`   | `u-cjk-enclett`     | `true`  | `0x03200..0x032ff` | `So`  | Enclosed CJK Letters and Months         |
-| `ucesup`   | `u-cjk-encsupp`     | `true`  | `0x1f200..0x1f2ff` | `So`  | Enclosed Ideographic Supplement         |
-| `uchalf`   | `u-halfull`         | `true`  | `0x0ff00..0x0ffef` | `*`   | Halfwidth and Fullwidth Forms           |
-| `uckanb`   | `u-cjk-kanbun`      | `true`  | `0x03190..0x0319f` | `*`   | Kanbun                                  |
-| `ucrad1`   | `u-cjk-rad1`        | `true`  | `0x02f00..0x02fdf` | `*`   | Kangxi Radicals                         |
-| `ucrad2`   | `u-cjk-rad2`        | `true`  | `0x02e80..0x02eff` | `*`   | CJK Radicals Supplement                 |
-| `ucsfv-`   | `u-small`           | `true`  | `0x0fe50..0x0fe6f` | `*`   | Small Form Variants                     |
-| `ucstrk`   | `u-cjk-strk`        | `true`  | `0x031c0..0x031ef` | `Lo`  | CJK Strokes                             |
-| `ucsym-`   | `u-cjk-sym`         | `true`  | `0x03000..0x0303f` | `*`   | CJK Symbols and Punctuation             |
-| `ucvert`   | `u-vertf`           | `true`  | `0x0fe10..0x0fe1f` | `*`   | Vertical Forms                          |
-| `ucxa--`   | `u-cjk-xa`          | `true`  | `0x03400..0x04dbf` | `Lo`  | CJK Ideograph Extension A               |
-| `ucxb--`   | `u-cjk-xb`          | `true`  | `0x20000..0x2a6df` | `Lo`  | CJK Ideograph Extension B               |
-| `ucxc--`   | `u-cjk-xc`          | `true`  | `0x2a700..0x2b73f` | `Lo`  | CJK Ideograph Extension C               |
-| `ucxd--`   | `u-cjk-xd`          | `true`  | `0x2b740..0x2b81f` | `Lo`  | CJK Ideograph Extension D               |
-| `ucxe--`   | `u-cjk-xe`          | `true`  | `0x2b820..0x2ceaf` | `Lo`  | CJK Ideograph Extension E               |
-| `ucxf--`   | `u-cjk-xf`          | `true`  | `0x2ceb0..0x2ebef` | `Lo`  | CJK Ideograph Extension F               |
-| `ucxg--`   | `u-cjk-xg`          | `true`  | `0x30000..0x3134A` | `Lo`  | CJK Ideograph Extension G               |
-| `ucxh--`   | `u-cjk-xh`          | `true`  | `0x31350..0x323AF` | `Lo`  | CJK Ideograph Extension H               |
-| `ucxi--`   | `u-cjk-xi`          | `true`  | `0x2ebf0..0x2EE5D` | `Lo`  | CJK Ideograph Extension I               |
-| `ucxj--`   | `u-cjk-xj`          | `true`  | `0x323b0..0x33479` | `Lo`  | CJK Ideograph Extension J               |
+
+|  *dgroup* | *IC Group* | *Range Sigil (RSG)* | *Kanji* |    *CID-Range*     | *UGC* |           *Unicode Block Name*          |
+|-----------|------------|---------------------|---------|--------------------|-------|-----------------------------------------|
+| `dg:rsgs` | `mjk---`   | `mjk`               | `false` | `0x0e000..0x0e0ff` | `So`  | Mojikura                                |
+| `dg:rsgs` | `jzr---`   | `jzr`               | `true`  | `0x0e100..0x0e39f` | `Lo`  | Jizura                                  |
+| `dg:rsgs` | `uc0---`   | `u-cjk`             | `true`  | `0x04e00..0x09fff` | `Lo`  | CJK Ideographs                          |
+| `dg:rsgs` | `uccmp-`   | `u-cjk-cmp`         | `true`  | `0x03300..0x033ff` | `Lo`  | CJK Compatibility                       |
+| `dg:rsgs` | `uccmp1`   | `u-cjk-cmpi1`       | `true`  | `0x0f900..0x0faff` | `Lo`  | CJK Compatibility Ideographs            |
+| `dg:rsgs` | `uccmp2`   | `u-cjk-cmpi2`       | `true`  | `0x2f800..0x2fa1f` | `Lo`  | CJK Compatibility Ideographs Supplement |
+| `dg:rsgs` | `uccmpf`   | `u-cjk-cmpf`        | `true`  | `0x0fe30..0x0fe4f` | `*`   | CJK Compatibility Forms                 |
+| `dg:rsgs` | `ucelet`   | `u-cjk-enclett`     | `true`  | `0x03200..0x032ff` | `So`  | Enclosed CJK Letters and Months         |
+| `dg:rsgs` | `ucesup`   | `u-cjk-encsupp`     | `true`  | `0x1f200..0x1f2ff` | `So`  | Enclosed Ideographic Supplement         |
+| `dg:rsgs` | `uchalf`   | `u-halfull`         | `true`  | `0x0ff00..0x0ffef` | `*`   | Halfwidth and Fullwidth Forms           |
+| `dg:rsgs` | `uckanb`   | `u-cjk-kanbun`      | `true`  | `0x03190..0x0319f` | `*`   | Kanbun                                  |
+| `dg:rsgs` | `ucrad1`   | `u-cjk-rad1`        | `true`  | `0x02f00..0x02fdf` | `*`   | Kangxi Radicals                         |
+| `dg:rsgs` | `ucrad2`   | `u-cjk-rad2`        | `true`  | `0x02e80..0x02eff` | `*`   | CJK Radicals Supplement                 |
+| `dg:rsgs` | `ucsfv-`   | `u-small`           | `true`  | `0x0fe50..0x0fe6f` | `*`   | Small Form Variants                     |
+| `dg:rsgs` | `ucstrk`   | `u-cjk-strk`        | `true`  | `0x031c0..0x031ef` | `Lo`  | CJK Strokes                             |
+| `dg:rsgs` | `ucsym-`   | `u-cjk-sym`         | `true`  | `0x03000..0x0303f` | `*`   | CJK Symbols and Punctuation             |
+| `dg:rsgs` | `ucvert`   | `u-vertf`           | `true`  | `0x0fe10..0x0fe1f` | `*`   | Vertical Forms                          |
+| `dg:rsgs` | `ucxa--`   | `u-cjk-xa`          | `true`  | `0x03400..0x04dbf` | `Lo`  | CJK Ideograph Extension A               |
+| `dg:rsgs` | `ucxb--`   | `u-cjk-xb`          | `true`  | `0x20000..0x2a6df` | `Lo`  | CJK Ideograph Extension B               |
+| `dg:rsgs` | `ucxc--`   | `u-cjk-xc`          | `true`  | `0x2a700..0x2b73f` | `Lo`  | CJK Ideograph Extension C               |
+| `dg:rsgs` | `ucxd--`   | `u-cjk-xd`          | `true`  | `0x2b740..0x2b81f` | `Lo`  | CJK Ideograph Extension D               |
+| `dg:rsgs` | `ucxe--`   | `u-cjk-xe`          | `true`  | `0x2b820..0x2ceaf` | `Lo`  | CJK Ideograph Extension E               |
+| `dg:rsgs` | `ucxf--`   | `u-cjk-xf`          | `true`  | `0x2ceb0..0x2ebef` | `Lo`  | CJK Ideograph Extension F               |
+| `dg:rsgs` | `ucxg--`   | `u-cjk-xg`          | `true`  | `0x30000..0x3134A` | `Lo`  | CJK Ideograph Extension G               |
+| `dg:rsgs` | `ucxh--`   | `u-cjk-xh`          | `true`  | `0x31350..0x323AF` | `Lo`  | CJK Ideograph Extension H               |
+| `dg:rsgs` | `ucxi--`   | `u-cjk-xi`          | `true`  | `0x2ebf0..0x2EE5D` | `Lo`  | CJK Ideograph Extension I               |
+| `dg:rsgs` | `ucxj--`   | `u-cjk-xj`          | `true`  | `0x323b0..0x33479` | `Lo`  | CJK Ideograph Extension J               |
 
 ## Other Related Scripts
 
